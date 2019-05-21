@@ -1,0 +1,19 @@
+<h1>Edit Your Task</h1>
+<p>Task ID: <%= @task.id %></p>
+<p>Task Details: <%= @task.details %></p>
+<p>Task Status: <%= @task.completed %></p>
+<hr>
+<%= form_for(@task) do |f| %>
+<%= f.label :title %>
+<%= f.text_field :title %>
+
+<%= f.label :details %>
+<%= f.text_field :details %>
+
+<%= f.label :completed %>
+<%= f.check_box :completed %>
+
+<%= f.submit %>
+<% end %>
+<hr>
+<%= link_to("Return to Main Task List", tasks_path) %>

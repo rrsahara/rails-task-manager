@@ -1,0 +1,21 @@
+ <!-- <meta charset="utf-8"> -->
+<div class="wrapper">
+  <div class="title-container">
+    <h1 class="title-h1">Task List</h1>
+    <div class="navbar-container">
+      <%= link_to("Create New Task", newtask_path) %>
+    </div>
+  </div>
+  <div class="task-container">
+    <ul>
+      <p><span>Task Title</span> <span>Task Details</span></p>
+      <!-- it has to be a string -->
+      <% @tasks.each do |task| %>
+      <!-- link it to delete and details -->
+      <li><input type="checkbox"><%= link_to("#{task.title}: #{task.details}", task_path(task.id))%><%= link_to("Delete?", delete_path(task), method: :delete, data: { confirm: "Are you sure?" }) %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+
